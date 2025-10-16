@@ -10,7 +10,7 @@ const postsRouter = require('./routers/postsRouter');
 // middleware per servire file statici
 app.use(express.static("public"));
 
-// registro il router con prefisso /posts
+// setto la rotta con prefisso /posts
 app.use("/posts", postsRouter);
 
 // rotta principale "/" che restituisce un messaggio semplice

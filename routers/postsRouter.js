@@ -1,6 +1,5 @@
 // importo il modulo Express
 const express = require("express");
-
 // creo un’istanza del router
 const router = express.Router();
 
