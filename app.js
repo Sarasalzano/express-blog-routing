@@ -1,14 +1,24 @@
+// importo il modulo Express
 const express = require("express");
+// creo un’istanza dell’app Express
 const app = express();
+// definisco la porta su cui il server ascolta
 const port = 3000;
-
-//import router dei post
+// importo il router dei post
 const postsRouter = require('./routers/postsRouter');
 
-//registro il router con la rotta posts
-app.use("/posts", postsRouter)
+// middleware per servire file statici
+app.use(express.static("public"));
 
-//avvio il server sulla porta 3000
+// registro il router con prefisso /posts
+app.use("/posts", postsRouter);
+
+// rotta principale "/" che restituisce un messaggio semplice
+app.get("/", (req, res) => {
+    res.send("<h1>Server del mio blog</h1>");
+});
+
+// avvio il server sulla porta definita
 app.listen(port, () => {
   console.log(`Server in ascolto su http://localhost:${port}`);
 });

@@ -1,37 +1,38 @@
-//importo modulo express
+// importo il modulo Express
 const express = require("express");
-//creo un router
+
+// creo un’istanza del router
 const router = express.Router();
 
-// index
+// index: restituisce la lista dei post
 router.get("/", function (req, res) {
-res.send("Lista ricette");
+  res.send("Lista dei post");
 });
 
-//show
+// show: restituisce i dettagli di un singolo post in base all'id
 router.get('/:id', function (req, res) {
-res.send("Dettagli dela ricetta" + req.params.id);
+  res.send("Dettagli del post " + req.params.id);
 });
 
-//store
+// store: crea un nuovo post
 router.post("/", function (req, res) {
-res.send("Creazione nuova ricetta");
+  res.send("Creazione nuovo post");
 });
 
-//update
+// update: aggiorna un post esistente con PUT
 router.put("/:id", function (req, res) {
-res.send("Modifica ricetta" + req.params.id);
+  res.send("Modifica post " + req.params.id);
 });
 
-//modify
+// modify: modifica parziale di un post con PATCH
 router.patch("/:id", function (req, res) {
-res.send('Modifica parziale della ricetta ' + req.params.id);
+  res.send('Modifica parziale del post ' + req.params.id);
 });
 
-//destroy
+// destroy: elimina un post in base all'id
 router.delete("/:id", function (req, res) {
-res.send("Eliminazione della ricetta" + req.params.id);
+  res.send("Eliminazione del post " + req.params.id);
 });
 
-//export del router 
+// esporta il router per poterlo usare in app.js
 module.exports = router;
